@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EDUCA PLAY PRO | Dashboard 2026</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+    background:
+    radial-gradient(ellipse at top, #626a75 0%, transparent 65%),
+    linear-gradient(135deg, #777e87, #343a42, #171c23);
+
+    padding: 22px;
+}
+
+/* ENCABEZADO */
+
+.header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    font-size: clamp(25px, 4vw, 43px);
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 0 0 12px #00bfff;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #d9e8f5;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+/* RECUADRO DESCRIPTIVO */
+
+.description {
+    max-width: 1150px;
+    margin: 0 auto 25px;
+    padding: 20px 25px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        rgba(10, 25, 45, 0.92),
+        rgba(25, 45, 68, 0.95)
+    );
+
+    border: 2px solid #147dff;
+    border-radius: 15px;
+
+    box-shadow:
+    0 0 7px #008cff,
+    0 0 15px rgba(0, 140, 255, 0.65),
+    inset 0 0 12px rgba(0, 140, 255, 0.15);
+}
+
+.description h2 {
+    font-size: 20px;
+    color: #52caff;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.description p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #e4f2ff;
+}
+
+/* CONTENEDOR DE APLICACIONES */
+
+.dashboard {
+    max-width: 1500px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+
+    gap: 12px;
+
+    padding: 18px;
+
+    background: rgba(10, 15, 23, 0.38);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.04);
+}
+
+/* BOTONES */
+
+.app-button {
+
+    min-width: 0;
+    min-height: 105px;
+
+    border: 2px solid rgba(255,255,255,0.4);
+
+    border-radius: 13px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 5px;
+
+    text-align: center;
+
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+
+    box-shadow:
+    0 5px 9px rgba(0,0,0,0.35),
+    inset 0 1px 5px rgba(255,255,255,0.35);
+
+    transition: all 0.25s ease;
+}
+
+.app-button:hover {
+
+    transform: translateY(-5px) scale(1.04);
+
+    filter: brightness(1.3);
+
+    box-shadow:
+    0 0 12px white,
+    0 0 22px currentColor,
+    0 8px 15px rgba(0,0,0,0.5);
+
+}
+
+.app-button:active {
+    transform: scale(0.94);
+}
+
+.app-button .number {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.app-button .emoji {
+    font-size: 27px;
+}
+
+/* COLORES */
+
+.color1 { background: linear-gradient(145deg,#0878c9,#003c78); }
+.color2 { background: linear-gradient(145deg,#00a77b,#006345); }
+.color3 { background: linear-gradient(145deg,#a044d5,#562080); }
+.color4 { background: linear-gradient(145deg,#ed8b13,#a94a00); }
+.color5 { background: linear-gradient(145deg,#dc3b59,#8b142b); }
+.color6 { background: linear-gradient(145deg,#008bba,#004d70); }
+.color7 { background: linear-gradient(145deg,#8a9b20,#46550c); }
+.color8 { background: linear-gradient(145deg,#535edb,#272d87); }
+
+/* PIE DE PAGINA */
+
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #c6d6e5;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* ADAPTACION TABLET */
+
+@media(max-width: 1050px) {
+    .dashboard {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* ADAPTACION CELULAR */
+
+@media(max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .app-button {
+        min-height: 90px;
+        font-size: 11px;
+    }
+
+    .app-button .emoji {
+        font-size: 23px;
+    }
+
+    .description {
+        padding: 15px;
+    }
+
+    .description p {
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header class="header">
+
+    <h1>EDUCA PLAY PRO</h1>
+
+    <p>
+        DASHBOARD DE APLICACIONES EDUCATIVAS INTERACTIVAS
+        | 2026
+    </p>
+
+</header>
+
+<!-- DESCRIPCION -->
+
+<section class="description">
+
+    <h2>PLATAFORMA DE INNOVACIÓN EDUCATIVA DIGITAL</h2>
+
+    <p>
+        Bienvenidos a esta colección de aplicaciones educativas
+        digitales interactivas, diseñadas y desarrolladas con
+        asistencia de Inteligencia Artificial (IA), mediante
+        programación y códigos personalizados, para fortalecer
+        los procesos de enseñanza y aprendizaje a través de
+        experiencias dinámicas, lúdicas y tecnológicas.
+        <br><br>
+
+        Una iniciativa de innovación pedagógica desarrollada
+        por el profesor <strong>JOSÉ FRANCISCO VEGA HERRERA</strong>,
+        en la ciudad de <strong>TALCA, CHILE</strong>.
+        <br><br>
+
+        <strong>2026 | EDUCACIÓN + TECNOLOGÍA + INTELIGENCIA ARTIFICIAL</strong>
+    </p>
+
+</section>
+
+<!-- MATRIZ DE 60 APLICACIONES -->
+
+<main class="dashboard" id="dashboard"></main>
+
+<!-- PIE DE PAGINA -->
+
+<footer class="footer">
+
+    © 2026 JOSÉ FRANCISCO VEGA HERRERA |
+    TALCA - CHILE |
+    EDUCA PLAY PRO
+
+</footer>
+
+<script>
+
+/* ===================================
+   CONFIGURACION DE APLICACIONES
+=================================== */
+
+const aplicaciones = [
+
+    {nombre:"MULTIPLEX 1-2-3 tablas", emoji:"🎮", link:"https://jvhjvh1964-coder.github.io/MULTIPLEX-1-2-3-TABLAS/"},
+    {nombre:"SUMEX", emoji:"➕", link:"https://jvhjvh1964-coder.github.io/SUMEX-8-FILAS-12-COLUMNAS/"},
+    {nombre:"PALABREX", emoji:"🔤", link:"https://jvhjvh1964-coder.github.io/PALABREX-8-FILAS-12-COLUMNAS/"},
+    {nombre:"MULTIPLEX", emoji:"🎡", link:"https://jvhjvh1964-coder.github.io/MULTIPLEX-8-FILAS-12-COLUMNAS/"},
+    {nombre:"BALANCE GENERAL 8 COLUMNAS", emoji:"📊", link:"https://jvhjvh1964-coder.github.io/BALANCE-GENERAL-8-COLUMNAS/"},
+    {nombre:"PRE-BALANCE 3-ETAPAS", emoji:"🧮", link:"https://jvhjvh1964-coder.github.io/PRE-BALANCE-28-PIEZAS-3-ETAPAS/"},
+    {nombre:"FLUJO DE CAJA 3-ETAPAS", emoji:"📐", link:"https://jvhjvh1964-coder.github.io/FLUJO-DE-CAJA-8-ITEMS-3-ETAPAS-TIPOS-FLUJO/"},
+    {nombre:"PLANILLA FLUJO DE CAJA", emoji:"💰", link:"https://jvhjvh1964-coder.github.io/PLANILLA-FLUJO-DE-CAJA/"},
+    {nombre:"SIMBOLOGÍA ALMACENAMIENTO Y BODEGA", emoji:"📚", link:"https://jvhjvh1964-coder.github.io/SIMBOLOGIA-2-BODEGA-ALMACENAMIENTO/"},
+    {nombre:"LABERINTO LOGICAX", emoji:"🌎", link:"https://jvhjvh1964-coder.github.io/LABERINTO-LOGICAX/"},
+
+    {nombre:"TÓMBOLA COLORES", emoji:"🚀", link:"https://jvhjvh1964-coder.github.io/TOMBOLA-COLORES-GIRATORIA/"},
+    {nombre:"LABERINTO LETRIX", emoji:"🎯", link:"https://jvhjvh1964-coder.github.io/LABERINTO-LETRIX/"},
+    {nombre:"LABERINTO NUMERIX", emoji:"🧠", link:"https://jvhjvh1964-coder.github.io/LABERINTO-NUMERIX/"},
+    {nombre:"TIPOS DE CARGAS", emoji:"🔬", link:"https://jvhjvh1964-coder.github.io/TIPOS-DE-CARGAS/"},
+    {nombre:"CLASIFICAR PRODUCTOS 4 CRITERIOS", emoji:"🧪", link:"https://jvhjvh1964-coder.github.io/CLASIFICAR-PRODUCTOS-4-CRITERIOS/"},
+    {nombre:"CADENA SUMINISTROS", emoji:"🎨", link:"https://jvhjvh1964-coder.github.io/CADENA-SUMINISTROS/"},
+    {nombre:"RECEPCIÓN PRODUCTOS simulador", emoji:"🎵", link:"https://jvhjvh1964-coder.github.io/SIMULADOR-RECEPCION-PRODUCTOS/"},
+    {nombre:"EQUIPOS MANIPULACIÓN CARGAS", emoji:"💡", link:"https://jvhjvh1964-coder.github.io/EQUIPOS-MANIPULACION-CARGAS/"},
+    {nombre:"MULTIPLICACIONES 3-SECCIONES PRODUCTO", emoji:"🌟", link:"https://jvhjvh1964-coder.github.io/MULTIPLICACIONES-3-SECCIONES-PRODUCTO/"},
+    {nombre:"MULTIPLICACIONES 3-SECCIONES FACTOR", emoji:"🏆", link:"https://jvhjvh1964-coder.github.io/MULTIPLICACIONES-3-SECCIONES-FACTOR/"},
+
+    {nombre:"ADICIONES 3-SECCIONES NÚMEROS", emoji:"📖", link:"https://jvhjvh1964-coder.github.io/ADICIONES-EN-3-SECCIONES-NUMEROS/"},
+    {nombre:"ADICIONES 3-SECCIONES EMOJIS", emoji:"✏️", link:"https://jvhjvh1964-coder.github.io/ADICIONES-EN-3-SECCIONES-EMOJIS/"},
+    {nombre:"CUENTA TEE COMPETENCIA", emoji:"🔢", link:"https://jvhjvh1964-coder.github.io/COMPETENCIA-TEES/"},
+    {nombre:"APLICACIÓN 24", emoji:"🧩", link:""},
+    {nombre:"APLICACIÓN 25", emoji:"🎲", link:""},
+    {nombre:"APLICACIÓN 26", emoji:"🖥️", link:""},
+    {nombre:"APLICACIÓN 27", emoji:"🌐", link:""},
+    {nombre:"APLICACIÓN 28", emoji:"📡", link:""},
+    {nombre:"APLICACIÓN 29", emoji:"⚡", link:""},
+    {nombre:"APLICACIÓN 30", emoji:"🔔", link:""},
+
+    {nombre:"APLICACIÓN 31", emoji:"🎓", link:""},
+    {nombre:"APLICACIÓN 32", emoji:"📈", link:""},
+    {nombre:"APLICACIÓN 33", emoji:"📉", link:""},
+    {nombre:"APLICACIÓN 34", emoji:"💻", link:""},
+    {nombre:"APLICACIÓN 35", emoji:"📝", link:""},
+    {nombre:"APLICACIÓN 36", emoji:"🧭", link:""},
+    {nombre:"APLICACIÓN 37", emoji:"🌈", link:""},
+    {nombre:"APLICACIÓN 38", emoji:"🔍", link:""},
+    {nombre:"APLICACIÓN 39", emoji:"🎁", link:""},
+    {nombre:"APLICACIÓN 40", emoji:"🎉", link:""},
+
+    {nombre:"APLICACIÓN 41", emoji:"🛠️", link:""},
+    {nombre:"APLICACIÓN 42", emoji:"📱", link:""},
+    {nombre:"APLICACIÓN 43", emoji:"🧑‍🏫", link:""},
+    {nombre:"APLICACIÓN 44", emoji:"🧑‍🎓", link:""},
+    {nombre:"APLICACIÓN 45", emoji:"🧮", link:""},
+    {nombre:"APLICACIÓN 46", emoji:"📋", link:""},
+    {nombre:"APLICACIÓN 47", emoji:"🔐", link:""},
+    {nombre:"APLICACIÓN 48", emoji:"🌍", link:""},
+    {nombre:"APLICACIÓN 49", emoji:"💎", link:""},
+    {nombre:"APLICACIÓN 50", emoji:"🚦", link:""},
+
+    {nombre:"APLICACIÓN 51", emoji:"🏅", link:""},
+    {nombre:"APLICACIÓN 52", emoji:"🧩", link:""},
+    {nombre:"APLICACIÓN 53", emoji:"📊", link:""},
+    {nombre:"APLICACIÓN 54", emoji:"🎯", link:""},
+    {nombre:"APLICACIÓN 55", emoji:"🖊️", link:""},
+    {nombre:"APLICACIÓN 56", emoji:"🔠", link:""},
+    {nombre:"APLICACIÓN 57", emoji:"🔢", link:""},
+    {nombre:"APLICACIÓN 58", emoji:"🎨", link:""},
+    {nombre:"APLICACIÓN 59", emoji:"🚀", link:""},
+    {nombre:"APLICACIÓN 60", emoji:"⭐", link:""}
+
+];
+
+/* ===================================
+   GENERACION AUTOMATICA DE BOTONES
+=================================== */
+
+const dashboard = document.getElementById("dashboard");
+
+const colores = [
+    "color1","color2","color3","color4",
+    "color5","color6","color7","color8"
+];
+
+aplicaciones.forEach((app, index) => {
+
+    const boton = document.createElement("button");
+
+    boton.className =
+        "app-button " + colores[index % colores.length];
+
+    boton.innerHTML = `
+        <span class="number">
+            APP ${String(index + 1).padStart(2,"0")}
+        </span>
+
+        <span class="emoji">${app.emoji}</span>
+
+        <span>${app.nombre}</span>
+    `;
+
+    boton.title = "Abrir " + app.nombre;
+
+    boton.addEventListener("click", () => {
+
+        if(app.link && app.link.trim() !== "") {
+
+            window.open(app.link, "_blank", "noopener,noreferrer");
+
+        } else {
+
+            alert(
+                "La aplicación " + app.nombre +
+                " todavía no tiene un enlace asignado."
+            );
+
+        }
+
+    });
+
+    dashboard.appendChild(boton);
+
+});
+
+</script>
+
+</body>
+</html>
